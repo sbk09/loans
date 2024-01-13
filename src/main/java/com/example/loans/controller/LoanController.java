@@ -26,4 +26,10 @@ public class LoanController {
         return new ResponseEntity<>(loanService.requestLoan(mobileNumber),
                 HttpStatus.CREATED);
     }
+
+    @PostMapping(value = "/depositLoanAmount", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LoanDto> depositAmountToLoan(@RequestParam(name = "mobileNumber") @Valid String mobileNumber,
+                                                       @RequestParam(name = "amount") Long amount) {
+        return new ResponseEntity<>(loanService.depositInstallment(mobileNumber, amount), HttpStatus.OK);
+    }
 }
