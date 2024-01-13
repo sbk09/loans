@@ -28,8 +28,8 @@ public class LoanController {
     }
 
     @PostMapping(value = "/depositLoanAmount", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<LoanDto> depositAmountToLoan(@RequestParam(name = "mobileNumber") @Valid String mobileNumber,
-                                                       @RequestParam(name = "amount") Long amount) {
-        return new ResponseEntity<>(loanService.depositInstallment(mobileNumber, amount), HttpStatus.OK);
+    public ResponseEntity<LoanDto> depositInstallmentToLoan(@RequestParam(name = "mobileNumber") @Valid String mobileNumber,
+                                                       @RequestParam(name = "installment") Long installment) {
+        return new ResponseEntity<>(loanService.depositInstallmentToLoan(mobileNumber, installment), HttpStatus.OK);
     }
 }

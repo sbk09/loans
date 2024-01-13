@@ -30,8 +30,14 @@ public class LoanServiceImpl implements LoanService {
         return loanMapper.getDtoFromEntity(loan);
     }
 
+    /**
+     *
+     * @param mobileNumber
+     * @param amount
+     * @return
+     */
     @Override
-    public LoanDto depositInstallment(String mobileNumber, Long amount) {
+    public LoanDto depositInstallmentToLoan(String mobileNumber, Long amount) {
         Optional<Loan> optionalLoan = loanRepository.findByMobileNumber(mobileNumber);
         if (optionalLoan.isEmpty())
             throw new RuntimeException("Loan not found for given mobile number.");
