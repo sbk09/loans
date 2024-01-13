@@ -7,5 +7,5 @@ public interface LoanService {
 
     LoanDto requestLoan(String mobileNumber);
 
-    LoanDto depositInstallment(String mobileNumber, Long amount);
+    LoanDto depositInstallmentToLoan(String mobileNumber, Long amount);
 }
