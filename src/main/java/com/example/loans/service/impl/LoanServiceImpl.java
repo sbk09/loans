@@ -41,7 +41,7 @@ public class LoanServiceImpl implements LoanService {
         return loan;
     }
 
-    private String generateLoanNumber(){
+    private String generateLoanNumber() {
         return String.valueOf(System.currentTimeMillis());
     }
 
