@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,5 +32,10 @@ public class LoanController {
     public ResponseEntity<LoanDto> depositInstallmentToLoan(@RequestParam(name = "mobileNumber") @Valid String mobileNumber,
                                                        @RequestParam(name = "installment") Long installment) {
         return new ResponseEntity<>(loanService.depositInstallmentToLoan(mobileNumber, installment), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getByMobileNumber", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LoanDto> getLoanByMobileNumber(@RequestParam String mobileNumber){
+        return new ResponseEntity<>(loanService.getLoanByMobileNumber(mobileNumber), HttpStatus.OK);
     }
 }

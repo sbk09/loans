@@ -40,8 +40,7 @@ public class Loan extends BaseEntity {
     private String mobileNumber;
 
     @Column(name = "loan_number")
-    @Generated(GenerationTime.INSERT)
-    //@GeneratedValue(generator = "MY_OWN_LOAN_SEQ", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "MY_OWN_LOAN_SEQ", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "MY_OWN_LOAN_SEQ", sequenceName = "MY_OWN_LOAN_SEQ")
     private String loanNumber;
 
