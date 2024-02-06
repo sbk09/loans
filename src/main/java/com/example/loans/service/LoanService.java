@@ -8,4 +8,6 @@ public interface LoanService {
     LoanDto requestLoan(String mobileNumber);
 
     LoanDto depositInstallmentToLoan(String mobileNumber, Long amount);
+
+    LoanDto getLoanByMobileNumber(String mobileNumber);
 }
